@@ -1,0 +1,54 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="container-xl">
+  <div class="table-responsive">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8"><h2><b>Job</b> <b>Details</b></h2></div>
+              </div>
+          </div>
+          <div class="row">
+            <form method="POST" action="{% url 'jobtypes_delete' %}" enctype="multipart/form-data">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Delete all</button>
+          </form>
+          </div>
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th scope="col">Job Type Name</th>
+                      <th scope="col">Department</th>
+                      <th scope="col"> action</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                {% for job in jobs  %}
+                <tr>
+                  <th scope="row">{{ job.id }}</th>
+                  <td>{{ job.job_type }}</td>
+                  <td>{{ job.department }}</td>
+                    <td>
+                       <form method="POST">
+                           {% csrf_token %}
+                            <button class="btn m-1 btn-primary" href="">Edit</button>
+                       </form>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <button class="sm btn btn-danger" href="{% url 'jobtype_delete' %}">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+{% endblock content %}

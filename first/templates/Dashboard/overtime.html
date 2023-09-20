@@ -1,0 +1,31 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="employee_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" id="employee_id" name="employee_id" required>
+  </div>
+  <div class="mb-3">
+    <label for="employee_name" class="form-label">Employee Name</label>
+    <input type="text" class="form-control" id="employee_name" name="employee_name" required>
+  </div>
+<div class="mb-3">
+  <label for="date" class="form-label">Date</label>
+  <input type="date" class="form-control" id="date" name="date" required>
+</div>
+<div class="mb-3">
+  <label for="hour" class="form-label">Hour</label>
+  <input type="time" class="form-control" id="hour" name="hour" required>
+</div>
+<div class="mb-3">
+  <label for="text" class="form-label">Text</label>
+  <textarea class="form-control" id="text" name="text" rows="3" required></textarea>
+</div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="container-xl">
+  <div class="table-responsive">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8"><h2><b>Employees</b> <b>Details</b></h2></div>
+              </div>
+          </div>
+          <div class="row">
+            <form method="POST" action="{% url 'departments_delete' %}" enctype="multipart/form-data">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Delete all</button>
+          </form>
+          </div>
+          <table class="table table-striped table-hover table-bordered">
+              <thead>
+                  <tr>
+                      <th scope="col">Department ID</th>
+                      <th scope="col">Department Name</th>
+                      <th scope="col"> Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for department in departments  %}
+                <tr>
+                  <th>{{ department.id }}</th>
+                  <td scope="row">{{ department.name }}</td>
+                  <td>
+                    <button class="btn btn-success"><a class="lin" href="{% url 'department_detail' department.id %}">view</a></button>
+                    <button class="btn btn-primary"><a class="lin" href="">Update</a></button>
+                    <button action="{% url 'removeDepartment' department.id %}" class="btn btn-danger">Delete</button>
+                  </td>
+                  <style>
+                    .lin{
+                      color : black;
+
+                    }
+                  </style>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+</div>
+
+{% endblock content %}

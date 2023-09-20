@@ -1,0 +1,27 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="container">
+  <h1>Add Business Department</h1>
+  <!-- <form method="post" action="{% url 'departmentList'  %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="employment_id" class="form-label">Department Name</label>
+      <input type="text" class="form-control" id="department_name" name="employment_id" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="employment_id" class="form-label">Department Id</label>
+      <input type="number" class="form-control" id="department_id" name="employment_id" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form> -->
+
+  <form method="POST" action="">
+    {% csrf_token %}
+    {% bootstrap_form form  %}
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</div>
+{% endblock %}

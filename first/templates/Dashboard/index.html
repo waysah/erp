@@ -1,0 +1,111 @@
+{% extends "Dashboard/base.html" %}
+{% load static %}
+
+{% block content %}
+     <!-- Left side columns -->
+     <div class="col-lg-12">
+      <div class="row">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Income</b></h5>
+                  <p class="card-text"><em>Kshs</em> {{ all_amount }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card text-bg-success pl-3">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Employees</b></h5>
+                  <p class="card-text"><b><em>{{ employees_number }}</em></b></p>
+                </div>
+              </div>
+            </div>
+            <!-- Add more cards for other layers -->
+
+            <div class="col-md-4 mt-2">
+              <div class="card text-bg-info">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Income Today</b></h5>
+                  <!-- Add a graph chart for income today -->
+                  <p class="card-text"><em>Kshs</em> 0</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+              <div class="card ">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Expense Total</b></h5>
+                  <canvas id="expenseChart"></canvas>
+                </div>
+              </div>
+            </div>
+            <!-- Add more cards for other graphs -->
+
+            <div class="col-md-4 mt-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Expenses</b></h5>
+                  <p class="card-text"><b><em>Kshs </em>0</b></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mt-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Payment Today</b></h5>
+                  <p class="card-text"><b><em>Kshs </em> 0</b></p>
+                </div>
+              </div>
+            </div>
+
+
+         {% for employee_initializer_income in employee_initalizer %}
+           <div class="col-md-4 mt-4">
+            <div class="card text-bg-success">
+              <div class="card-body">
+                <h5 class="card-title"><b>Total Employees Payement</b></h5>
+                <p class="card-text"><b><em> Kshs </em>{{ employee_initializer.consolidated_employee_income }}</b></p>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+            <!-- Add more cards for other layers -->
+
+            <div class="col-md-4 mt-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Payment</b></h5>
+                  <!-- Add a graph chart for total payment -->
+                  <p class="card-text">Kshs <em>{{ total_company_income }}</em></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mt-4">
+              <div class="card">
+                <div class="card-body text-bg-success">
+                  <h5 class="card-title"><b>Total Jobs</b></h5>
+                  <!-- Add a table for total employees -->
+                  <p class="card-text"><em>{{ job_count }}</em></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mt-4">
+              <div class="card">
+                <div class="card-body text-bg-success">
+                  <h5 class="card-title"><b>Total Departments</b></h5>
+                  <!-- Add a table for total employees -->
+                  <p class="card-text"><em>{{ departments_count }}</em></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+{% endblock content %}

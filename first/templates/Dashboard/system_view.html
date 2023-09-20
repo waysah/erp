@@ -1,0 +1,13 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+<h5>@software as a service provider:</h5>
+<h6>Wawericom company Kenya</h6>
+
+
+{% for system_information in system_informations  %}
+  <p>Company-Name: {{ system_information.company_name }}</p>
+  <p>company-Logo: {{ system_information.company_logo.url }}</p>
+{% endfor %}
+
+

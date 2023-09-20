@@ -1,0 +1,208 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<style>
+  .hover-card:hover {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+  }
+</style>
+
+
+<!-- Left side columns -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card text-center text-bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Total Income</h5>
+          <p class="card-text">Kshs 0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center text-bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Total Expenses</h5>
+          <p class="card-text">Kshs 0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center text-bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Total Commission</h5>
+          <p class="card-text">Kshs 0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center text-bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Total Profit</h5>
+          <p class="card-text">Kshs 0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card text-center hover-card">
+        <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-people-fill"></i>
+          </span>
+          <a href="{% url 'employeeList' %}"> <h5 class="card-title">View Employees</h5> </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <!-- <div class="card text-center hover-card" onclick="location.href=''"> -->
+        <div class="card text-center hover-card">
+        <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-house-check-fill"></i>
+            <!-- <i class="bi bi-people-fill"></i> -->
+          </span>
+          <a href="{% url 'departmentList' %}"> <h5 class="card-title">View Departments</h5> </a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <!-- <div class="card text-center hover-card" onclick="location.href=''"> -->
+        <div class="card text-center hover-card">
+        <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-people-fill"></i>
+          </span>
+          <a href="{% url 'expense_list' %}"> <h5 class="card-title">View Expenses</h5> </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center hover-card">
+        <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-people-fill"></i>
+          </span>
+          <a href="{% url  'employeeSalaryList'  %}"><h5 class="card-title">View Commissions</h5> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row">
+    <div class="col-md-3">
+      <!-- <div class="card text-center hover-card" onclick="location.href=''"> -->
+        <div class="card text-center hover-card">
+        <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-house-check-fill"></i>
+            <!-- <i class="bi bi-people-fill"></i> -->
+          </span>
+          <a href="{% url 'jobtypes' %}"> <h5 class="card-title">View job types</h5> </a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <!-- <div class="card text-center hover-card" onclick="location.href=''"> -->
+        <div class="card text-center hover-card">
+
+          <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-house-check-fill"></i>
+            <!-- <i class="bi bi-people-fill"></i> -->
+          </span>
+          <a href="{% url 'balanceSheet' %}"> <h5 class="card-title">View Balance Sheet</h5> </a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <!-- <div class="card text-center hover-card" onclick="location.href=''"> -->
+        <div class="card text-center hover-card">
+        <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-people-fill"></i>
+          </span>
+          <a href="{% url 'award_list' %}"> <h5 class="card-title">View Employee Award</h5> </a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center hover-card.,">
+        <div class="card-body">
+          <span class="icon">
+            <i class="bi bi-people-fill"></i>
+          </span>
+          <a href="{% url 'advancesalary_list' %}"><h5 class="card-title">Advance salary</h5> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="row">
+
+<!-- <div class="card text-center hover-card" onclick="location.href=''"> -->
+<div class="card text-center hover-card col-md-3 " style="margin-right:20px;">
+<div class="card-body">
+  <span class="icon">
+    <i class="bi bi-house-check-fill"></i>
+    <!-- <i class="bi bi-people-fill"></i> -->
+  </span>
+  <a href="{% url 'dailyRecordList' %}"> <h5 class="card-title">Daily Record</h5> </a>
+</div>
+</div>
+
+<div class="card text-center hover-card col-md-3 " style="margin-right:20px;">
+<div class="card-body">
+  <span class="icon">
+    <i class="bi bi-house-check-fill"></i>
+    <!-- <i class="bi bi-people-fill"></i> -->
+  </span>
+  <a href="{% url 'departmentList' %}"> <h5 class="card-title">Overtime</h5> </a>
+
+</div>
+</div>
+
+  <div class="card text-center hover-card col-md-3 ">
+<div class="card-body">
+  <span class="icon">
+    <i class="bi bi-house-check-fill"></i>
+    <!-- <i class="bi bi-people-fill"></i> -->
+  </span>
+  <a href="{% url 'debit_view' %}"> <h5 class="card-title">Debit</h5> </a>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+{% endblock content %}

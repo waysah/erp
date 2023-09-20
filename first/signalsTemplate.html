@@ -1,0 +1,103 @@
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from .models import DailyWork,Employees, employee_initializer
+from django.db import models
+from django.db.models import Sum,  F, FloatField
+
+@receiver(post_save, sender=DailyWork)
+def update_total_income(sender, instance, created, **kwargs):
+    if created:
+        employee = instance.employee_ID
+        total_income = employee.total_income + (instance.commision_rate / 100) * instance.total_amount
+        employee.total_income = total_income
+        employee.save()
+        
+ # Calculate total income for all employees
+        all_employees = Employees.objects.all()
+        consolidated_income = all_employees.aggregate(
+            total_income=Sum(F('dailywork__total_amount') * F('dailywork__commision_rate') / 100, output_field=FloatField())
+        )['total_income']
+        
+        # Save the consolidated income to the EmployeeInitializer model
+        employee_initializer, _ = employee_initializer.objects.get_or_create(pk=1)
+        employee_initializer.consolidated_employee_income = consolidated_income or 0
+        employee_initializer.save()
+
+//part two
+# models.py
+
+from django.db import models
+
+class Employees(models.Model):
+    # Define the fields for the Employees model
+
+class Commision_saraly(models.Model):
+    # Define the fields for the Commision_saraly model
+
+class DailyWork(models.Model):
+    employee_ID = models.ForeignKey(Employees, on_delete=models.CASCADE)
+    total_amount = models.FloatField()
+    job_type = models.ForeignKey(Commision_saraly, on_delete=models.CASCADE)
+    commision_rate = models.IntegerField()
+    date = models.DateTimeField(blank=True)
+
+class EmployeeIncome(models.Model):
+    employee = models.ForeignKey(Employees, on_delete=models.CASCADE)
+    total_income = models.FloatField(default=0)
+
+class CompanyIncome(models.Model):
+    total_amount = models.FloatField(default=0)
+    employee_income = models.FloatField(default=0)
+    company_income = models.FloatField(default=0)
+
+//part two
+# signals.py
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from .models import DailyWork, Employees, EmployeeIncome, CompanyIncome
+from django.db.models import Sum, F, FloatField
+
+# Signal to continuously calculate and update the total income for each employee
+@receiver(post_save, sender=DailyWork)
+def update_employee_income(sender, instance, created, **kwargs):
+    if created:
+        total_income = instance.employee_ID.total_income + (instance.commision_rate / 100) * instance.total_amount
+        instance.employee_ID.total_income = total_income
+        instance.employee_ID.save()
+
+# Signal to continuously calculate and update the total income for all employees
+@receiver(post_save, sender=DailyWork)
+def update_all_employees_income(sender, instance, created, **kwargs):
+    if created:
+        consolidated_income = Employees.objects.aggregate(
+            total_income=Sum(F('dailywork__total_amount') * F('dailywork__commision_rate') / 100, output_field=FloatField())
+        )['total_income']
+        EmployeeIncome.objects.all().update(total_income=consolidated_income)
+
+# Signal to continuously calculate and update the company income
+@receiver(post_save, sender=DailyWork)
+def update_company_income(sender, instance, created, **kwargs):
+    if created:
+        total_amount = DailyWork.objects.aggregate(total_amount=Sum('total_amount'))['total_amount']
+        employee_income = EmployeeIncome.objects.aggregate(employee_income=Sum('total_income'))['employee_income']
+        company_income = total_amount - employee_income
+
+        company_income_instance, _ = CompanyIncome.objects.get_or_create(id=1)
+        company_income_instance.total_amount = total_amount
+        company_income_instance.employee_income = employee_income
+        company_income_instance.company_income = company_income
+        company_income_instance.save()
+
+        
+        # apps.py
+
+        from django.apps import AppConfig
+        
+        class YourAppNameConfig(AppConfig):
+            default_auto_field = 'django.db.models.BigAutoField'
+            name = 'your_app_name'
+        
+            def ready(self):
+                import your_app_name.signals
+        

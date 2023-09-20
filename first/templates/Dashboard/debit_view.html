@@ -1,0 +1,36 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="col">
+  <form method="POST" action="{% url 'debit_delete_all' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" value="submit">Delete All</button>
+  </form>
+ </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Date</th>
+          <th scope="col">Reason</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for debit in debits %}
+        <tr>
+          <th scope="row">{{ debit.employee_name }}</th>
+          <td>{{debit.amount}}</td>
+          <td>{{debit.month}}</td>
+          <td>{{ debit.reason }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Left side columns -->
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends "Dashboard/base.html" %}
+
+{% block content %}
+<div class="container-xl">
+  <div class="table-responsive">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8"><h2><b>Employees</b> <b>Details</b></h2></div>
+              </div>
+          </div>
+          <div class="row">
+            <form method="post" action="{% url 'departments_delete' %}" enctype="multipart/form-data">
+              {% csrf_token %}
+              <button type="submit" value="submit" class="btn btn-danger">Delete all</button>
+          </form>
+          </div>
+          <table class="table table-striped table-hover table-bordered">
+              <thead>
+                  <tr>
+                      <th scope="col">Department ID</th>
+                      <th scope="col">Department Name</th>
+                      <th scope="col"> action</th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                {% for department in departments  %}
+                <tr>
+                  <td>{{ department.id }}</td>
+                  <th scope="row">{{ department.name }}</th>
+                  <td>
+                        <a href="{% url 'department_detail' department.pk %}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i>View</a>
+                        <a href="{% url 'department_update' department.pk %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>Edit</a>
+                        <a href="{% url 'department_delete' department.pk %}" class="delete" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE517;</i>Delete</a>
+                 </td>
+                </tr>
+                
+                {% endfor %}
+                 
+              </tbody>
+          </table>
+          
+      </div>
+  </div>  
+</div>   
+{% endblock content %}

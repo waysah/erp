@@ -1,0 +1,31 @@
+{% extends "Dashboard/base.html" %}
+
+{% block content %}
+<div class="mb-3">
+  <label for="employment_id" class="form-label">Employee salary list</label>
+ 
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Department Name</th>
+          <th scope="col">Department id</th>
+          
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+       
+        <tr>
+          {% for department in departments %}
+          <th scope="row">{{  department.department_name }}</th>
+          <td>{{ department.department_id }}</td>
+          {% endfor  %}
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Left side columns -->
+
+{% endblock content %}
