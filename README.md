@@ -1,4 +1,4 @@
-# erp
+# ERP(Enterprise Resourse Planning System)
  Symotedz Main ERP System
  
  Comprises of HR, Payroll and Accounting System
