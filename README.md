@@ -6,11 +6,11 @@
 
 ![Alt text](image-1.png)
 ## Instructions
-1) Clone the Repository-> git clone https://github.com/symotedz/erp.git
+1) Fork The repo
 
-2) Set up the Environment -> pip install -r requirements.txt
+2) Create a New Branch -> git checkout -b feature-branch
 
-3) Create a New Branch -> git checkout -b feature-branch
+3) Set up the Environment -> pip install -r requirements.txt
 
 4) Make your Changes and commit -> git commit -m "Your descriptive commit message"
  
@@ -20,4 +20,5 @@
 
 ### Ensure to properly comment on the code
 
- Licensed under GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.en.html
+ - Licensed under GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.en.html
+ - https://github.com/symotedz/erp.git
