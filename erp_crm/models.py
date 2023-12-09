@@ -16,3 +16,13 @@ class Customer(models.Model):
 
     def total_due(self):
         return sum(service.price for service in self.services_ordered.all())
+    
+class Payment(models.Model):
+    Amount = models.PositiveIntegerField()
+    date = models.DateTimeField(auto_now_add=True)
+    service = models.ForeignKey(Service,on_delete=models.CASCADE)
+    payment_method = models.CharField(max_length=255, null=True, blank=True)
+
+class Payment_Record_Status(models.Model):
+    remaining_amount = models.PositiveIntegerField()
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
