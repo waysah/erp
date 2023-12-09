@@ -9,3 +9,6 @@ Comprises of:
 Incoming Future date Feature: Customer Portal
 ![Alt text](image-1.png)
 ![Alt text](image.png)
+
+SCM -Supply chain management
+CRM - Customer Relation Management System
