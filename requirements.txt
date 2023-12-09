@@ -2,7 +2,7 @@ django
 djangorestframework
 markdown
 django-filter
-django-bootstrap-v5===1.0.
+django-bootstrap-v5===1.0.11
 xhtml2pdf
 numpy
 pandas
