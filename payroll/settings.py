@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "bootstrap5",
-    'first'
-
-
+    'first',
+    'erp_crm',
+    'erp_scm',
+    'API',
     #'accounts',
 ]
 MIDDLEWARE = [

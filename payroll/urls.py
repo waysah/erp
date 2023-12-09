@@ -24,6 +24,9 @@ urlpatterns = [
     path('',   views.login),
     path('admin/', admin.site.urls),
     path('home/', include('first.urls')),
+    path('api/', include('API.urls')),
+    path('erp_crm/', include('erp_crm.urls')), #crm=> Customer Relationship Management
+    path('erp_scm/', include('erp_scm.urls')), #scm=> supply chain Management
 
 ]
 
