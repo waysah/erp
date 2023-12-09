@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from .forms import ManagerForm, EmployeesForm,DailyWorkForm, CommisionSalaryForm, FixedSalaryForm, AllowancesForm, DeductionsForm, SalaryDetailsForm, JobTypeForm, CommissionTemplatesForm, ManageSalaryForm, SelectDepartmentForm, PayrollSummaryForm, AdvanceSalaryForm, OvertimeForm, EmployeeAwardForm, AddExpensesForm, DepartmentForm , first_departmentForm,EmployeeForm,employee_initializerForm
 from .models import Manager, Employees, Commision_saraly, Fixed_saraly, allowances, deductions, salary_details, job_type, commission_templates, ManageSalary, SelectDepartment, PayrollSummary, AdvanceSalary,  overtime, employeeAward, addExpenses, Department,DailyWork,first_department,Employee
-from fpdf import FPDF
 from .models import Transaction, employee_initializer, debit
 from django.urls import path,include
 from django.db.models import Count,Sum,Max,Min,Avg
