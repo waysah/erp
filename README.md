@@ -4,8 +4,7 @@
  Streamlining and intergrating variuos business processes within an organization.Automation of whole business
  ________________________________________________________________________________________________________________________________
 
- Comprises of HR, Payroll and Accounting System
-
+![Alt text](image.png)
 ## Instructions
 1) Clone the Repository-> git clone https://github.com/symotedz/erp.git
 
