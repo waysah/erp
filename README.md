@@ -1,7 +1,8 @@
 # ERP(Enterprise Resourse Planning System)
  Symotedz Main ERP System
  ________________________________________________________________________________________________________________________________
- _________________________________________________________________________________________________________________________________
+ Streamlining and intergrating variuos business processes within an organization.Automation of whole business
+ ________________________________________________________________________________________________________________________________
 
  Comprises of HR, Payroll and Accounting System
 
