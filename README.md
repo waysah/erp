@@ -4,7 +4,7 @@
  Streamlining and intergrating variuos business processes within an organization.Automation of whole business
  ________________________________________________________________________________________________________________________________
 
-![Alt text](image.png)
+![Alt text](image-1.png)
 ## Instructions
 1) Clone the Repository-> git clone https://github.com/symotedz/erp.git
 
