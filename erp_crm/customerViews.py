@@ -20,7 +20,7 @@ class CustomerCreateView(CreateView):
 
 class CustomerUpdateView(UpdateView):
     model = Customer
-    template_name = 'customer_form.html'
+    template_name = 'customer_form_update.html'
     fields = ['name', 'email', 'phone']
     success_url = reverse_lazy('customer_list')
 
