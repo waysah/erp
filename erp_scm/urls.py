@@ -1,9 +1,9 @@
 from django.http import HttpResponse
 from django.urls import path 
 from . import views 
-from . views import SupplierCreateView, SupplierDeleteView
-from . views import SupplierDetailView, SupplierListView
-from . views import SupplierUpdateView
+from . SupplierView import SupplierCreateView, SupplierDeleteView
+from . SupplierView import SupplierDetailView, SupplierListView
+from . SupplierView import SupplierUpdateView
 
 urlpatterns = [
     path('', views.erp_scm, name="erp_scm"),
@@ -15,5 +15,5 @@ urlpatterns = [
     path('supplier/<int:pk>/', SupplierDetailView.as_view(), name='supplier_detail'),
     path('supplier/<int:pk>/delete/', SupplierDeleteView.as_view(), name='supplier_delete'),
 
-    
+
 ]
