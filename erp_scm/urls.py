@@ -5,6 +5,9 @@ from . SupplierView import SupplierCreateView, SupplierDeleteView
 from . SupplierView import SupplierDetailView, SupplierListView
 from . SupplierView import SupplierUpdateView
 from . ManufacturerView import *
+from . ProductView import *
+
+
 urlpatterns = [
     path('', views.erp_scm, name="erp_scm"),
 
@@ -21,6 +24,13 @@ urlpatterns = [
     path('manufacturer/create/', ManufacturerCreateView.as_view(), name='manufacturer_create'),
     path('manufacturer/<int:pk>/update/', ManufacturerUpdateView.as_view(), name='manufacturer_update'),
     path('manufacturer/<int:pk>/delete/', ManufacturerDeleteView.as_view(), name='manufacturer_delete'),
+
+    # Urls for Products
+    path('products/', ProductListView.as_view(), name='product_list'),
+    path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
+    path('product/create/', ProductCreateView.as_view(), name='product_create'),
+    path('product/<int:pk>/update/', ProductUpdateView.as_view(), name='product_update'),
+    path('product/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
 
 
 
