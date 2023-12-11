@@ -6,7 +6,7 @@ from .models import  Service
 
 class ServiceListView(ListView):
     model = Service
-    template_name = 'index.html'
+    template_name = 'service_list.html'
     context_object_name = 'services'
 
 class ServiceDetailView(DetailView):
@@ -22,7 +22,7 @@ class ServiceCreateView(CreateView):
 
 class ServiceUpdateView(UpdateView):
     model = Service
-    template_name = 'service_form.html'
+    template_name = 'service_form_update.html'
     fields = ['name', 'price']
     success_url = reverse_lazy('service_list')
 
