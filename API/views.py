@@ -63,7 +63,7 @@ class deductionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = deductionsSerializer
 
 class deductionListCreateView(generics.ListCreateAPIView):
-    queryset = deductions.objectsa.all()
+    queryset = deductions.objects.all()
     serializer_class = deductionsSerializer
 
 class salary_detailsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
@@ -167,7 +167,7 @@ class TransactionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView
     serializer_class = TransactionSerializer
 
 class TransactionListCreateView(generics.ListCreateAPIView):
-    queryset = Transcation.objects.all()
+    queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
 
 class commision_rateRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
@@ -219,6 +219,10 @@ class financialreportListCreateView(generics.ListCreateAPIView):
     serializer_class = financialreportSerializer
 
 class daily_resultsRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = daily_results.objects.all()
+    serializer_class = daily_resultsSerializer
+
+class daily_resultsListCreateView(generics.ListCreateAPIView):
     queryset = daily_results.objects.all()
     serializer_class = daily_resultsSerializer
 
