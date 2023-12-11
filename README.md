@@ -23,4 +23,4 @@
  - Licensed under GPL-3.0 https://www.gnu.org/licenses/gpl-3.0.en.html
  - https://github.com/symotedz/erp.git
 
- <a href="https://wakatime.com/badge/github/symotedz/erp"><img src="https://wakatime.com/badge/github/symotedz/erp.svg" alt="wakatime"></a>
+<h2> <a href="https://wakatime.com/badge/github/symotedz/erp"><img src="https://wakatime.com/badge/github/symotedz/erp.svg" alt="wakatime"></a></h2>
